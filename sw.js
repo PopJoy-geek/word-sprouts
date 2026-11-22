@@ -1,5 +1,5 @@
 /* Word Sprouts PWA service worker. Bump this name when the offline shell changes. */
-const CACHE_NAME = 'word-sprouts-v12';
+const CACHE_NAME = 'word-sprouts-v13';
 const scopedUrl = (path) => new URL(path, self.registration.scope).toString();
 const APP_SHELL = [
   scopedUrl('./'),
@@ -51,7 +51,24 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (['style', 'script', 'font', 'image'].includes(request.destination)) {
+  // App code must be network-first so a phone never keeps running a stale
+  // install/microphone fix. Cached code remains available when offline.
+  if (['style', 'script'].includes(request.destination)) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  if (['font', 'image'].includes(request.destination)) {
     event.respondWith(
       caches.match(request).then((cached) => {
         const network = fetch(request).then((response) => {
