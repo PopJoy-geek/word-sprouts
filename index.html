@@ -15,6 +15,16 @@
     <meta property="og:description" content="Audio-first speaking, listening, and early word recognition on a measurable CEFR A1 course path." />
     <meta property="og:image" content="/word-sprouts/og.png" />
     <title>Word Sprouts A1 City — Build words. Build a city.</title>
+    <script>
+      // Capture Chromium's one-shot install event before React loads. Some
+      // Android devices fire it before the install component has mounted.
+      window.__wordSproutsInstallPrompt = null;
+      window.addEventListener('beforeinstallprompt', function (event) {
+        event.preventDefault();
+        window.__wordSproutsInstallPrompt = event;
+        window.dispatchEvent(new Event('word-sprouts-install-ready'));
+      });
+    </script>
     <script type="module" crossorigin src="/word-sprouts/app.js"></script>
     <link rel="stylesheet" crossorigin href="/word-sprouts/app.css">
   </head>
