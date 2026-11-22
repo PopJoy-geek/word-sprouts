@@ -1,0 +1,40 @@
+{
+  "id": "./",
+  "name": "Word Sprouts: A1 City",
+  "short_name": "Word Sprouts",
+  "description": "An audio-first English learning and city-building game for native English-speaking children ages 3–5.",
+  "lang": "en-US",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#bfeeff",
+  "theme_color": "#3b8fa6",
+  "categories": ["education", "games"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
