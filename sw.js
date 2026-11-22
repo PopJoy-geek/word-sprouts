@@ -1,5 +1,5 @@
 /* Word Sprouts PWA service worker. Bump this name when the offline shell changes. */
-const CACHE_NAME = 'word-sprouts-v3';
+const CACHE_NAME = 'word-sprouts-v4';
 const scopedUrl = (path) => new URL(path, self.registration.scope).toString();
 const APP_SHELL = [
   scopedUrl('./'),
