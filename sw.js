@@ -1,11 +1,12 @@
 /* Word Sprouts PWA service worker. Bump this name when the offline shell changes. */
-const CACHE_NAME = 'word-sprouts-v14';
+const CACHE_NAME = 'word-sprouts-v15';
 const scopedUrl = (path) => new URL(path, self.registration.scope).toString();
 const APP_SHELL = [
   scopedUrl('./'),
   scopedUrl('offline.html'),
   scopedUrl('manifest.webmanifest'),
   scopedUrl('favicon.svg'),
+  scopedUrl('table.png'),
   scopedUrl('icon-96.png'),
   scopedUrl('icon-192.png'),
   scopedUrl('icon-512.png'),
