@@ -1,16 +1,18 @@
 /* Word Sprouts PWA service worker. Bump this name when the offline shell changes. */
-const CACHE_NAME = 'word-sprouts-v15';
+const CACHE_NAME = 'word-sprouts-v16';
 const scopedUrl = (path) => new URL(path, self.registration.scope).toString();
 const APP_SHELL = [
   scopedUrl('./'),
+  scopedUrl('assets/index-CqBTKNAn.js'),
+  scopedUrl('assets/index-CSSTOOWh.css'),
   scopedUrl('offline.html'),
   scopedUrl('manifest.webmanifest'),
   scopedUrl('favicon.svg'),
   scopedUrl('table.png'),
-  scopedUrl('icon-96.png'),
-  scopedUrl('icon-192.png'),
-  scopedUrl('icon-512.png'),
-  scopedUrl('apple-touch-icon.png')
+  scopedUrl('icons/icon-96.png'),
+  scopedUrl('icons/icon-192.png'),
+  scopedUrl('icons/icon-512.png'),
+  scopedUrl('icons/apple-touch-icon.png')
 ];
 
 self.addEventListener('install', (event) => {
